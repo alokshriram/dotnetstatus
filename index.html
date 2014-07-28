@@ -33,15 +33,18 @@
               $("#fullTable").empty();
               $("#fullTable").addClass('hide');
               $("#loader").addClass('hide');
+              if (currentActive != null) currentActive.setAttribute("class", "btn btn-lg btn-default");
           }
+
           function buttonClick(control, action,object) {
               var uribase = "http://dotnetanalytics.cloudapp.net/";
               var uri = uribase + control + "/" + action;
               //Manage active pane
-              var parentcontrol = object.parentNode;
-              if (currentActive != null) currentActive.removeAttribute("class");
+              //var parentcontrol = object.parentNode;
+              var parentcontrol = object
+              if (currentActive != null) currentActive.setAttribute("class", "btn btn-lg btn-default");
               currentActive = parentcontrol;
-              currentActive.setAttribute("class", "active");
+              currentActive.setAttribute("class", "btn btn-lg btn-success");
               //End managed active pane
 
               $("#fullTable").removeClass('hide')
@@ -95,16 +98,16 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1> .NET API Availability </h1>
-          <p>The goal of this site is to provide information about the data that we collect using the APIPort tool and provide an insight into how we are prioritizing the work to enable APIs on platforms.</p>
-          <p>Click on any of the tabs below to get information about top used and missing APIs by platform. </p>
-          
-        <p>
-          <!--<a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>-->
-        </p>
-      </div>
 
-        <div class="navbar navbar-default" role="navigation">
+              <h1><a href="#"onclick="clearUI()"><img src="http://i.microsoft.com/net/images/chrome/net-logo.jpg" /></a>  .NET API Availability </h1>
+              <p>The goal of this site is to provide information about the data that we collect using the APIPort tool and provide an insight into how we are prioritizing the work to enable APIs on platforms.</p>
+              <p>Click on any of the tabs below to get information about top used and missing APIs by platform. </p>
+              <p>
+                  <!--<a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>-->
+              </p>
+     </div>
+      <!--navbar navbar-default-->
+        <div class="navigation" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -117,10 +120,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" onclick="buttonClick('API','TopUse',this)">Top Used Apis</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopASPMissing',this)">Top Missing Apis (ASP.NET VNext)</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopPhoneMissing',this)">Top Missing Apis (Windows Phone)</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopStoreMissing',this)">Top Missing Apis (Windows Store)</a></li>
+                        <li><a class="btn btn-lg btn-default"  href="#" onclick="buttonClick('API','TopUse',this)">Top Used </a></li>
+                        <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopASPMissing',this)">Top Missing (ASP.NET VNext)</a></li>
+                        <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopPhoneMissing',this)">Top Missing (Windows Phone)</a></li>
+                        <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopStoreMissing',this)">Top Missing (Windows Store)</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
