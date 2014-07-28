@@ -27,15 +27,23 @@
     <![endif]-->
 
       <script>
+          var currentActive = null;
 
           function clearUI() {
               $("#fullTable").empty();
               $("#fullTable").addClass('hide');
               $("#loader").addClass('hide');
           }
-          function buttonClick(control, action) {
+          function buttonClick(control, action,object) {
               var uribase = "http://dotnetanalytics.cloudapp.net/";
               var uri = uribase + control + "/" + action;
+              //Manage active pane
+              var parentcontrol = object.parentNode;
+              if (currentActive != null) currentActive.removeAttribute("class");
+              currentActive = parentcontrol;
+              currentActive.setAttribute("class", "active");
+              //End managed active pane
+
               $("#fullTable").removeClass('hide')
               $("#fullTable").empty();
               $("#loader").removeClass('hide');
@@ -109,10 +117,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" onclick="buttonClick('API','TopUse')">Top Used Apis</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopASPMissing')">Top Missing Apis (ASP.NET VNext)</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopPhoneMissing')">Top Missing Apis (Windows Phone)</a></li>
-                        <li><a href="#" onclick="buttonClick('API', 'TopStoreMissing')">Top Missing Apis (Windows Store)</a></li>
+                        <li><a href="#" onclick="buttonClick('API','TopUse',this)">Top Used Apis</a></li>
+                        <li><a href="#" onclick="buttonClick('API', 'TopASPMissing',this)">Top Missing Apis (ASP.NET VNext)</a></li>
+                        <li><a href="#" onclick="buttonClick('API', 'TopPhoneMissing',this)">Top Missing Apis (Windows Phone)</a></li>
+                        <li><a href="#" onclick="buttonClick('API', 'TopStoreMissing',this)">Top Missing Apis (Windows Store)</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
