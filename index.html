@@ -60,6 +60,8 @@
                       content = content + controlTemplate;
                   }
                   content = content + "</tbody></table>";
+                  //empty once again in case of fast clicks to ensure that state is clean
+                  $("#fullTable").empty();
                   $("#fullTable").append(content);
                   $("#loader").addClass('hide');
               }).done(function () {
