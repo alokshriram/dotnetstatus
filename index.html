@@ -73,29 +73,6 @@
   <body>
 
     <div class="container">
-      <!-- Static navbar -->
-      <!--<div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" onclick="clearUI()">.NET Analytics</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#" onclick="buttonClick('API','TopUse')">Top Used Apis</a></li>
-              <li><a href="#" onclick="buttonClick('API', 'TopASPMissing')">Top Missing Apis (ASP.NET VNext)</a></li>
-              <li><a href="#" onclick="buttonClick('API', 'TopPhoneMissing')">Top Missing Apis (Windows Phone)</a></li>
-              <li><a href="#" onclick="buttonClick('API', 'TopStoreMissing')">Top Missing Apis (Windows Store)</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>-->
-
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
 
@@ -120,7 +97,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="btn btn-lg btn-default"  href="#" onclick="buttonClick('API','TopUse',this)">Top Used </a></li>
+                        <li><a class="btn btn-lg btn-default"  id="startupButton" href="#" onclick="buttonClick('API','TopUse',this)">Top Used </a></li>
                         <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopASPMissing',this)">Top Missing (ASP.NET VNext)</a></li>
                         <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopPhoneMissing',this)">Top Missing (Windows Phone)</a></li>
                         <li><a class="btn btn-lg btn-default" href="#" onclick="buttonClick('API', 'TopStoreMissing',this)">Top Missing (Windows Store)</a></li>
@@ -139,10 +116,6 @@
         <div class="row hide" id="fullTable" >
             <!-- Table content will get put here-->
         </div>
-
-
-
-
     </div> <!-- /container -->
 
 
@@ -151,6 +124,13 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var control = document.getElementById("startupButton");
+            buttonClick('API', 'TopUse', control);
+        });
+        
+    </script>
 
   </body>
 </html>
