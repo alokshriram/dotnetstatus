@@ -53,10 +53,10 @@
               //Need the below line for the following reason http://stackoverflow.com/questions/9160123/no-transport-error-w-jquery-ajax-call-in-ie
               $.support.cors = true;
               $.getJSON(uri, null, function (data) {
-                  var content = "<table class=\"table-striped table\"><thead> <tr> <th>Type Name</th> <th>Usage Count</th> </tr> </thead> <tbody>";
+                  var content = "<table class=\"table-striped table\"><thead> <tr> <th>Type Name</th> </tr> </thead> <tbody>";
                   for (i = 0; i < data.length; i++) {
                       var item = data[i];
-                      var controlTemplate = "<tr> <th>" + item.DocId + "</th> <th>" + item.Count + "</th> </tr>";
+                      var controlTemplate = "<tr> <th>" + item.DocId + "</th>  </tr>";
                       content = content + controlTemplate;
                   }
                   content = content + "</tbody></table>";
